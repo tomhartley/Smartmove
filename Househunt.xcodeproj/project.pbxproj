@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D81F1BA415D064D700C8985E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F1BA315D064D700C8985E /* UIKit.framework */; };
+		D81F1BA615D064D700C8985E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F1BA515D064D700C8985E /* Foundation.framework */; };
+		D81F1BA815D064D700C8985E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F1BA715D064D700C8985E /* CoreGraphics.framework */; };
+		D81F1BAE15D064D700C8985E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81F1BAC15D064D700C8985E /* InfoPlist.strings */; };
+		D81F1BB015D064D700C8985E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F1BAF15D064D700C8985E /* main.m */; };
+		D81F1BB415D064D700C8985E /* THAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F1BB315D064D700C8985E /* THAppDelegate.m */; };
+		D81F1BB715D064D700C8985E /* THMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F1BB615D064D700C8985E /* THMainViewController.m */; };
+		D81F1BBA15D064D700C8985E /* THFlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F1BB915D064D700C8985E /* THFlipsideViewController.m */; };
+		D81F1BBD15D064D700C8985E /* THMainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81F1BBB15D064D700C8985E /* THMainViewController_iPhone.xib */; };
+		D81F1BC015D064D700C8985E /* THMainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81F1BBE15D064D700C8985E /* THMainViewController_iPad.xib */; };
+		D81F1BC315D064D700C8985E /* THFlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81F1BC115D064D700C8985E /* THFlipsideViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D81F1B9F15D064D700C8985E /* Househunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Househunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81F1BA315D064D700C8985E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D81F1BA515D064D700C8985E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D81F1BA715D064D700C8985E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D81F1BAB15D064D700C8985E /* Househunt-Info.plist */ = {isa = PBXFileReference; path = "Househunt-Info.plist"; sourceTree = "<group>"; };
+		D81F1BAD15D064D700C8985E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D81F1BAF15D064D700C8985E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D81F1BB115D064D700C8985E /* Househunt-Prefix.pch */ = {isa = PBXFileReference; path = "Househunt-Prefix.pch"; sourceTree = "<group>"; };
+		D81F1BB215D064D700C8985E /* THAppDelegate.h */ = {isa = PBXFileReference; path = THAppDelegate.h; sourceTree = "<group>"; };
+		D81F1BB315D064D700C8985E /* THAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAppDelegate.m; sourceTree = "<group>"; };
+		D81F1BB515D064D700C8985E /* THMainViewController.h */ = {isa = PBXFileReference; path = THMainViewController.h; sourceTree = "<group>"; };
+		D81F1BB615D064D700C8985E /* THMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THMainViewController.m; sourceTree = "<group>"; };
+		D81F1BB815D064D700C8985E /* THFlipsideViewController.h */ = {isa = PBXFileReference; path = THFlipsideViewController.h; sourceTree = "<group>"; };
+		D81F1BB915D064D700C8985E /* THFlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFlipsideViewController.m; sourceTree = "<group>"; };
+		D81F1BBC15D064D700C8985E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/THMainViewController_iPhone.xib; sourceTree = "<group>"; };
+		D81F1BBF15D064D700C8985E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/THMainViewController_iPad.xib; sourceTree = "<group>"; };
+		D81F1BC215D064D700C8985E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/THFlipsideViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D81F1B9C15D064D700C8985E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81F1BA415D064D700C8985E /* UIKit.framework in Frameworks */,
+				D81F1BA615D064D700C8985E /* Foundation.framework in Frameworks */,
+				D81F1BA815D064D700C8985E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D81F1B9415D064D600C8985E = {
+			isa = PBXGroup;
+			children = (
+				D81F1BA915D064D700C8985E /* Househunt */,
+				D81F1BA215D064D700C8985E /* Frameworks */,
+				D81F1BA015D064D700C8985E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D81F1BA015D064D700C8985E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D81F1B9F15D064D700C8985E /* Househunt.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D81F1BA215D064D700C8985E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D81F1BA315D064D700C8985E /* UIKit.framework */,
+				D81F1BA515D064D700C8985E /* Foundation.framework */,
+				D81F1BA715D064D700C8985E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D81F1BA915D064D700C8985E /* Househunt */ = {
+			isa = PBXGroup;
+			children = (
+				D81F1BB215D064D700C8985E /* THAppDelegate.h */,
+				D81F1BB315D064D700C8985E /* THAppDelegate.m */,
+				D81F1BB515D064D700C8985E /* THMainViewController.h */,
+				D81F1BB615D064D700C8985E /* THMainViewController.m */,
+				D81F1BB815D064D700C8985E /* THFlipsideViewController.h */,
+				D81F1BB915D064D700C8985E /* THFlipsideViewController.m */,
+				D81F1BBB15D064D700C8985E /* THMainViewController_iPhone.xib */,
+				D81F1BBE15D064D700C8985E /* THMainViewController_iPad.xib */,
+				D81F1BC115D064D700C8985E /* THFlipsideViewController.xib */,
+				D81F1BAA15D064D700C8985E /* Supporting Files */,
+			);
+			path = Househunt;
+			sourceTree = "<group>";
+		};
+		D81F1BAA15D064D700C8985E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D81F1BAB15D064D700C8985E /* Househunt-Info.plist */,
+				D81F1BAC15D064D700C8985E /* InfoPlist.strings */,
+				D81F1BAF15D064D700C8985E /* main.m */,
+				D81F1BB115D064D700C8985E /* Househunt-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D81F1B9E15D064D700C8985E /* Househunt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D81F1BC615D064D700C8985E /* Build configuration list for PBXNativeTarget "Househunt" */;
+			buildPhases = (
+				D81F1B9B15D064D700C8985E /* Sources */,
+				D81F1B9C15D064D700C8985E /* Frameworks */,
+				D81F1B9D15D064D700C8985E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Househunt;
+			productName = Househunt;
+			productReference = D81F1B9F15D064D700C8985E /* Househunt.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D81F1B9615D064D600C8985E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TH;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = D81F1B9915D064D600C8985E /* Build configuration list for PBXProject "Househunt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D81F1B9415D064D600C8985E;
+			productRefGroup = D81F1BA015D064D700C8985E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D81F1B9E15D064D700C8985E /* Househunt */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D81F1B9D15D064D700C8985E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81F1BAE15D064D700C8985E /* InfoPlist.strings in Resources */,
+				D81F1BBD15D064D700C8985E /* THMainViewController_iPhone.xib in Resources */,
+				D81F1BC015D064D700C8985E /* THMainViewController_iPad.xib in Resources */,
+				D81F1BC315D064D700C8985E /* THFlipsideViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D81F1B9B15D064D700C8985E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81F1BB015D064D700C8985E /* main.m in Sources */,
+				D81F1BB415D064D700C8985E /* THAppDelegate.m in Sources */,
+				D81F1BB715D064D700C8985E /* THMainViewController.m in Sources */,
+				D81F1BBA15D064D700C8985E /* THFlipsideViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D81F1BAC15D064D700C8985E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F1BAD15D064D700C8985E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D81F1BBB15D064D700C8985E /* THMainViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F1BBC15D064D700C8985E /* en */,
+			);
+			name = THMainViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		D81F1BBE15D064D700C8985E /* THMainViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F1BBF15D064D700C8985E /* en */,
+			);
+			name = THMainViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		D81F1BC115D064D700C8985E /* THFlipsideViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F1BC215D064D700C8985E /* en */,
+			);
+			name = THFlipsideViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D81F1BC415D064D700C8985E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D81F1BC515D064D700C8985E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D81F1BC715D064D700C8985E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Househunt/Househunt-Prefix.pch";
+				INFOPLIST_FILE = "Househunt/Househunt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D81F1BC815D064D700C8985E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Househunt/Househunt-Prefix.pch";
+				INFOPLIST_FILE = "Househunt/Househunt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D81F1B9915D064D600C8985E /* Build configuration list for PBXProject "Househunt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81F1BC415D064D700C8985E /* Debug */,
+				D81F1BC515D064D700C8985E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D81F1BC615D064D700C8985E /* Build configuration list for PBXNativeTarget "Househunt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81F1BC715D064D700C8985E /* Debug */,
+				D81F1BC815D064D700C8985E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D81F1B9615D064D600C8985E /* Project object */;
+}
