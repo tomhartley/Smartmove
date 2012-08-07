@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+
+  <Placemark>
+	<Style>
+	<LineStyle>
+      <width>0</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>cc4c69d5</color>
+    </PolyStyle>
+	</Style>
+    <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.146190332368,51.4971850771,0 -0.143887133589,51.4981162359,0 -0.137725170914,51.4977032732,0 -0.142963037688,51.4957615227,0 -0.146414838504,51.4922627623,0 -0.151221018642,51.4924913683,0 -0.146190332368,51.4971850771,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+
+</Document>
+</kml>
