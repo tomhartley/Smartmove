@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface THNeighbourhood : NSObject
+@interface THNeighbourhood : NSObject {
+    NSString *ID;
+    float crimeIndex;
+    float unemploymentIndex;
+    
+    MKPolygon *polygon;
+}
+
+- (id) initWithID:(NSString *)neighbourhoodID;
+
+@property (nonatomic, readonly) NSString *ID;
+@property (nonatomic, readonly) MKPolygon *polygon;
+@property (nonatomic) float crimeIndex;
 
 @end

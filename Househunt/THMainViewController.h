@@ -6,12 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
 #import "THFlipsideViewController.h"
+#import "THNeighbourhood.h"
 
-@interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate>
+@interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate, MKMapViewDelegate> {
+    IBOutlet MKMapView *map;
+    NSMutableArray *neighbourhoods;
+}
+
+- (IBAction)showInfo:(id)sender;
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay;
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
-- (IBAction)showInfo:(id)sender;
 
 @end
