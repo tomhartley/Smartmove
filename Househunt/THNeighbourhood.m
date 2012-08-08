@@ -10,14 +10,6 @@
 
 #import <KML/KML.h>
 
-#import "SimpleKML.h"
-#import "SimpleKMLContainer.h"
-#import "SimpleKMLDocument.h"
-#import "SimpleKMLFeature.h"
-#import "SimpleKMLPlacemark.h"
-#import "SimpleKMLPolygon.h"
-#import "SimpleKMLLinearRing.h"
-
 @implementation THNeighbourhood
 @synthesize ID, crimeIndex, polygon;
 
@@ -26,31 +18,18 @@
     self = [super init];
     if (self) {
         ID = neighbourhoodID;
-        SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:neighbourhoodID ofType:@"kml"] error:NULL];
         
-        // look for a document feature in it per the KML spec
+        KMLRoot *root = [KMLParser parseKMLAtPath:[[NSBundle mainBundle] pathForResource:neighbourhoodID ofType:@"kml"]];
+        NSArray *coords = [[(KMLPolygon *)[(KMLPlacemark *)[[(KMLDocument *)[root feature] features] objectAtIndex:0] geometry] outerBoundaryIs] coordinates];
+        CLLocationCoordinate2D points[[coords count]];
+        NSUInteger i = 0;
+        
+        for (KMLCoordinate *coordinate in coords)
+            points[i++] = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+        
+        // create a polygon annotation for it
+        polygon = [MKPolygon polygonWithCoordinates:points count:[coords count]];
 
-        if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]])
-        {
-            // see if the document has features of its own
-            for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
-                if ([feature isKindOfClass:[SimpleKMLPlacemark class]] && ((SimpleKMLPlacemark *)feature).polygon) {
-                    
-                    SimpleKMLPolygon *simplePolygon = (SimpleKMLPolygon *)((SimpleKMLPlacemark *)feature).polygon;
-                    
-                    SimpleKMLLinearRing *outerRing = simplePolygon.outerBoundary;
-                    
-                    CLLocationCoordinate2D points[[outerRing.coordinates count]];
-                    NSUInteger i = 0;
-                    
-                    for (CLLocation *coordinate in outerRing.coordinates)
-                        points[i++] = coordinate.coordinate;
-                    
-                    // create a polygon annotation for it
-                    polygon = [MKPolygon polygonWithCoordinates:points count:[outerRing.coordinates count]];
-                }
-            }
-        }
     }
     return self;
 }

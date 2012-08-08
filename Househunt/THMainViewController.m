@@ -23,7 +23,7 @@
 }
 
 -(void) performAsyncActions {
-    NSURL *theURL =  [[NSURL alloc]initWithString:@"http://vps.boredomcode.net/YRSApi/budget"];
+    NSURL *theURL =  [[NSURL alloc]initWithString:@"http://vps.boredomcode.net/YRSApi/crimes"];
     NSURLRequest *theRequest=[NSURLRequest requestWithURL:theURL
                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                           timeoutInterval:60.0];
