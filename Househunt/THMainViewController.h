@@ -12,7 +12,7 @@
 
 @interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate, MKMapViewDelegate> {
     IBOutlet MKMapView *map;
-    NSMutableArray *neighbourhoods;
+    NSMutableDictionary *neighbourhoods;
 }
 
 - (IBAction)showInfo:(id)sender;

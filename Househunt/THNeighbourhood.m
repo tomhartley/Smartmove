@@ -8,6 +8,8 @@
 
 #import "THNeighbourhood.h"
 
+#import <KML/KML.h>
+
 #import "SimpleKML.h"
 #import "SimpleKMLContainer.h"
 #import "SimpleKMLDocument.h"
@@ -23,6 +25,7 @@
     // grab the  KML file
     self = [super init];
     if (self) {
+        ID = neighbourhoodID;
         SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:neighbourhoodID ofType:@"kml"] error:NULL];
         
         // look for a document feature in it per the KML spec
