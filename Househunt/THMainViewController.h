@@ -9,10 +9,12 @@
 #import <MapKit/MapKit.h>
 #import "THFlipsideViewController.h"
 #import "THNeighbourhood.h"
+#import "MBProgressHUD.h"
 
-@interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate, MKMapViewDelegate> {
+@interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
     IBOutlet MKMapView *map;
     NSMutableDictionary *neighbourhoods;
+    NSDictionary *currentData;
 }
 
 - (IBAction)showInfo:(id)sender;

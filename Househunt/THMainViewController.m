@@ -7,7 +7,7 @@
 //
 
 #import "THMainViewController.h"
-#import "parseCSV.h"
+
 @interface THMainViewController ()
 
 @end
@@ -19,27 +19,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self performSelectorInBackground:@selector(performAsyncActions) withObject:nil];
+    //[self performSelectorInBackground:@selector(performAsyncActions) withObject:nil];
+    // The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
+	MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.view];
+	[self.view addSubview:HUD];
+	HUD.labelText = @"Loading Overlay...";
+	// Register for HUD callbacks so we can remove it from the window at the right time
+	HUD.delegate = self;
+	
+	// Show the HUD while the provided method executes in a new thread
+	[HUD showWhileExecuting:@selector(performAsyncActions) onTarget:self withObject:nil animated:YES];
 }
 
 -(void) performAsyncActions {
-    NSURL *theURL =  [[NSURL alloc]initWithString:@"http://vps.boredomcode.net/YRSApi/crimes"];
-    NSURLRequest *theRequest=[NSURLRequest requestWithURL:theURL
-                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:60.0];
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:nil];
-    NSArray * locations = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
+    NSDictionary *hoods = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"neighbourhoods" ofType:@"json"]] options:0 error:nil];
+    
+        
     neighbourhoods = [NSMutableDictionary dictionaryWithCapacity:800];
-    for (NSDictionary *dict in locations) {
-        THNeighbourhood *newHood = [[THNeighbourhood alloc] initWithID:[dict objectForKey:@"neighbourhoodCode"]];
-        [newHood setCrimeIndex:[[dict objectForKey:@"data"] floatValue]];
-        [neighbourhoods setObject:newHood forKey:newHood.ID];
+    for (NSString *hoodID in hoods) {
+        THNeighbourhood *newHood = [[THNeighbourhood alloc] initWithID:hoodID coordinates:[hoods objectForKey:hoodID]];
+        [neighbourhoods setObject:newHood forKey:hoodID];
     }
     
-    [self performSelectorOnMainThread:@selector(centerMap) withObject:nil waitUntilDone:NO];
+    [self performSelectorInBackground:@selector(flipsideViewControllerDidUpdate:) withObject:nil];
 }
 
 -(void)centerMap {
+    [map removeOverlays:[map overlays]];
     
     for (THNeighbourhood *hood in [neighbourhoods allValues]) {
         [map addOverlay:hood.polygon];
@@ -67,6 +73,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return YES;
+    }
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -77,17 +86,15 @@
     polygonView.fillColor   = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.25];
     for (THNeighbourhood *hood in [neighbourhoods allValues]) {
         if ([hood.polygon isEqual:overlay]) {
-            polygonView.fillColor   = [UIColor colorWithRed:hood.crimeIndex green:1-hood.crimeIndex blue:0.0 alpha:0.8];
+            polygonView.fillColor   = [UIColor colorWithRed:hood.crimeIndex*1.5 green:1-hood.crimeIndex blue:0.0 alpha:0.3+(0.3*hood.crimeIndex)];
+            polygonView.strokeColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
             break;
         }
     }
-    
-    polygonView.strokeColor = [UIColor colorWithRed:0 green:0.0 blue:0.0 alpha:0.2];
-    
-    polygonView.lineWidth = 0.1;
-    
+    polygonView.lineWidth = 1;
     return polygonView;
 }
+
 
 
 #pragma mark - Flipside View Controller
@@ -99,6 +106,55 @@
     } else {
         [self.flipsidePopoverController dismissPopoverAnimated:YES];
     }
+    
+}
+
+-(void)flipsideViewControllerDidUpdate:(THFlipsideViewController *)controller {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *prefs = [[defaults objectForKey:@"userprefs"] mutableCopy];
+    NSMutableDictionary *enabled = [[defaults objectForKey:@"enabledPrefs"] mutableCopy];
+    /* For combined
+     0 = crime
+     1 = primary schooling
+     2 = secondary
+     3 = house price
+     4 = employment
+     */
+    NSMutableString *URL = [@"http://vps.boredomcode.net/YRSApi/combi/" mutableCopy];
+    
+    //@"crimes",@"employment",@"houseprices",@"ks2",@"ks4"
+    for (NSString *str in prefs) {
+        if ([[enabled objectForKey:str] boolValue]) {
+            if ([str isEqualToString:@"crimes"]) {
+                [URL appendString:@"0"];
+            } else if ([str isEqualToString:@"employment"]) {
+                [URL appendString:@"4"];
+            } else if ([str isEqualToString:@"houseprices"]) {
+                [URL appendString:@"3"];
+            } else if ([str isEqualToString:@"ks2"]) {
+                [URL appendString:@"1"];
+            } else {
+                [URL appendString:@"2"];
+            }
+        }
+    }
+    
+    NSLog(@"URL: %@",URL);
+    //URL = [@"http://vps.boredomcode.net/YRSApi/crimes/" mutableCopy];
+    NSURL *theURL =  [[NSURL alloc]initWithString:URL];
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:theURL
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:60.0];
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:nil];
+    NSDictionary * crimeData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
+
+    
+    for (NSString* hoodID in crimeData) {
+        THNeighbourhood *hood = [neighbourhoods objectForKey:hoodID];
+        hood.crimeIndex = [[crimeData objectForKey:hoodID] floatValue];
+    }
+    
+    [self performSelectorOnMainThread:@selector(centerMap) withObject:nil waitUntilDone:NO];
 }
 
 - (IBAction)showInfo:(id)sender
@@ -122,5 +178,12 @@
         }
     }
 }
+
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[hud removeFromSuperview];
+}
+
 
 @end

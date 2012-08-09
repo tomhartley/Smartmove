@@ -17,7 +17,7 @@
     MKPolygon *polygon;
 }
 
-- (id) initWithID:(NSString *)neighbourhoodID;
+- (id) initWithID:(NSString *)neighbourhoodID coordinates:(NSArray *)coords;
 
 @property (nonatomic, readonly) NSString *ID;
 @property (nonatomic, readonly) MKPolygon *polygon;
