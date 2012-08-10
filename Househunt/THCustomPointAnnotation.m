@@ -9,5 +9,5 @@
 #import "THCustomPointAnnotation.h"
 
 @implementation THCustomPointAnnotation
-@synthesize urlToShow;
+@synthesize urlToShow, isHouse;
 @end

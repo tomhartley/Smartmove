@@ -10,4 +10,5 @@
 
 @interface THCustomPointAnnotation : MKPointAnnotation
 @property (nonatomic) NSString *urlToShow;
+@property BOOL isHouse;
 @end

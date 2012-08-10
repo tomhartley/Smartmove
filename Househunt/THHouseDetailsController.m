@@ -28,8 +28,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    budget.value = [[defaults objectForKey:@"budget"] floatValue];
-    budgetLabel.text = [NSString stringWithFormat:@"£%.0f",budget.value];
+    NSNumber *budgetNumber = [NSNumber numberWithFloat:[[defaults objectForKey:@"budget"] floatValue]];
+    NSLog(@"READ: %@",budgetNumber);
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    budget.value = [budgetNumber floatValue];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setRoundingIncrement:[NSNumber numberWithInt:10000]];
+    currencyFormatter.roundingMode = NSNumberFormatterRoundHalfEven;
+    [currencyFormatter setMaximumFractionDigits:0];
+    budgetLabel.text = [currencyFormatter stringFromNumber:budgetNumber];
     bedrooms.selectedSegmentIndex = [defaults integerForKey:@"bedrooms"];
     bathrooms.selectedSegmentIndex = [defaults integerForKey:@"bathrooms"];
     flatOrHouse.selectedSegmentIndex = [defaults integerForKey:@"houseOrFlat"];
@@ -43,8 +50,15 @@
 }
 
 -(IBAction)dataUpdated {
-    budgetLabel.text = [NSString stringWithFormat:@"£%.0f",budget.value];
+    NSNumber *budgetNumber = [NSNumber numberWithFloat:budget.value];
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setRoundingIncrement:[NSNumber numberWithInt:10000]];
+    currencyFormatter.roundingMode = NSNumberFormatterRoundHalfEven;
+    [currencyFormatter setMaximumFractionDigits:0];
+    budgetLabel.text = [currencyFormatter stringFromNumber:budgetNumber];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"SAVED:%f",budget.value);
     [defaults setFloat:budget.value forKey:@"budget"];
     [defaults setInteger:bedrooms.selectedSegmentIndex forKey:@"bedrooms"];
     [defaults setInteger:bathrooms.selectedSegmentIndex forKey:@"bathrooms"];

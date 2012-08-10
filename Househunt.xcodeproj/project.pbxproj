@@ -26,6 +26,14 @@
 		D822F39F15D4F61300939CC4 /* reload_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F39615D4F61300939CC4 /* reload_icon@2x.png */; };
 		D822F3A015D4F61300939CC4 /* TSMiniWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D822F39815D4F61300939CC4 /* TSMiniWebBrowser.m */; };
 		D822F3A115D4F61300939CC4 /* TSMiniWebBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = D822F39915D4F61300939CC4 /* TSMiniWebBrowser.xib */; };
+		D822F3B215D50E5400939CC4 /* smartmove57.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3AE15D50E5400939CC4 /* smartmove57.png */; };
+		D822F3B315D50E5400939CC4 /* smartmove72.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3AF15D50E5400939CC4 /* smartmove72.png */; };
+		D822F3B415D50E5400939CC4 /* smartmove114.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3B015D50E5400939CC4 /* smartmove114.png */; };
+		D822F3B515D50E5400939CC4 /* smartmove144.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3B115D50E5400939CC4 /* smartmove144.png */; };
+		D822F3C015D50FBC00939CC4 /* 53-house-white.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3BE15D50FBC00939CC4 /* 53-house-white.png */; };
+		D822F3C115D50FBC00939CC4 /* 53-house-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3BF15D50FBC00939CC4 /* 53-house-white@2x.png */; };
+		D822F3C415D5124A00939CC4 /* 177-building-white.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3C215D5124A00939CC4 /* 177-building-white.png */; };
+		D822F3C715D5156C00939CC4 /* 177-building-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3C615D5156C00939CC4 /* 177-building-white@2x.png */; };
 		D82CDB1F15D066E1005F1FDB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82CDB1E15D066E1005F1FDB /* MapKit.framework */; };
 		D82CDB2815D06EEA005F1FDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82CDB2715D06EEA005F1FDB /* CoreLocation.framework */; };
 		D82CDC1815D07455005F1FDB /* THNeighbourhood.m in Sources */ = {isa = PBXBuildFile; fileRef = D82CDC1715D07455005F1FDB /* THNeighbourhood.m */; };
@@ -77,6 +85,14 @@
 		D822F39715D4F61300939CC4 /* TSMiniWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMiniWebBrowser.h; sourceTree = "<group>"; };
 		D822F39815D4F61300939CC4 /* TSMiniWebBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMiniWebBrowser.m; sourceTree = "<group>"; };
 		D822F39915D4F61300939CC4 /* TSMiniWebBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMiniWebBrowser.xib; sourceTree = "<group>"; };
+		D822F3AE15D50E5400939CC4 /* smartmove57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smartmove57.png; sourceTree = "<group>"; };
+		D822F3AF15D50E5400939CC4 /* smartmove72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smartmove72.png; sourceTree = "<group>"; };
+		D822F3B015D50E5400939CC4 /* smartmove114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smartmove114.png; sourceTree = "<group>"; };
+		D822F3B115D50E5400939CC4 /* smartmove144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smartmove144.png; sourceTree = "<group>"; };
+		D822F3BE15D50FBC00939CC4 /* 53-house-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house-white.png"; sourceTree = "<group>"; };
+		D822F3BF15D50FBC00939CC4 /* 53-house-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house-white@2x.png"; sourceTree = "<group>"; };
+		D822F3C215D5124A00939CC4 /* 177-building-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "177-building-white.png"; sourceTree = "<group>"; };
+		D822F3C615D5156C00939CC4 /* 177-building-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "177-building-white@2x.png"; sourceTree = "<group>"; };
 		D82CDB1E15D066E1005F1FDB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D82CDB2715D06EEA005F1FDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D82CDC1615D07455005F1FDB /* THNeighbourhood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THNeighbourhood.h; sourceTree = "<group>"; };
@@ -184,6 +200,14 @@
 		D81F1BAA15D064D700C8985E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D822F3BE15D50FBC00939CC4 /* 53-house-white.png */,
+				D822F3BF15D50FBC00939CC4 /* 53-house-white@2x.png */,
+				D822F3C615D5156C00939CC4 /* 177-building-white@2x.png */,
+				D822F3C215D5124A00939CC4 /* 177-building-white.png */,
+				D822F3AE15D50E5400939CC4 /* smartmove57.png */,
+				D822F3AF15D50E5400939CC4 /* smartmove72.png */,
+				D822F3B015D50E5400939CC4 /* smartmove114.png */,
+				D822F3B115D50E5400939CC4 /* smartmove144.png */,
 				D8E67E1E15D2950D00EF8465 /* 53-house.png */,
 				D8E67E1F15D2950D00EF8465 /* 53-house@2x.png */,
 				D8E67E1A15D294FE00EF8465 /* 177-building.png */,
@@ -314,6 +338,14 @@
 				D822F39E15D4F61300939CC4 /* reload_icon.png in Resources */,
 				D822F39F15D4F61300939CC4 /* reload_icon@2x.png in Resources */,
 				D822F3A115D4F61300939CC4 /* TSMiniWebBrowser.xib in Resources */,
+				D822F3B215D50E5400939CC4 /* smartmove57.png in Resources */,
+				D822F3B315D50E5400939CC4 /* smartmove72.png in Resources */,
+				D822F3B415D50E5400939CC4 /* smartmove114.png in Resources */,
+				D822F3B515D50E5400939CC4 /* smartmove144.png in Resources */,
+				D822F3C015D50FBC00939CC4 /* 53-house-white.png in Resources */,
+				D822F3C115D50FBC00939CC4 /* 53-house-white@2x.png in Resources */,
+				D822F3C415D5124A00939CC4 /* 177-building-white.png in Resources */,
+				D822F3C715D5156C00939CC4 /* 177-building-white@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

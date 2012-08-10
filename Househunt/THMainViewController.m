@@ -55,6 +55,11 @@
                             action:@selector(showHouseDetails:)
                   forControlEvents:UIControlEventTouchUpInside];
             pin.rightCalloutAccessoryView = rightButton;
+            if (annotation.isHouse) {
+                pin.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"53-house-white"]];
+            } else {
+                pin.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"177-building-white"]];
+            }
         }
         return pin;
     }
@@ -74,8 +79,6 @@
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
         return;
     }
-    [map removeAnnotations:currentPins];
-    [currentPins removeAllObjects];
     CGPoint touchPoint = [gestureRecognizer locationInView:map];   
     CLLocationCoordinate2D touchMapCoordinate = [map convertPoint:touchPoint toCoordinateFromView:map];
     MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
@@ -93,7 +96,19 @@
     [urlString appendFormat:@"lat=%f&lon=%f&",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [urlString appendFormat:@"budget=%.0f&bedrooms=%d&bathrooms=%d",[defaults floatForKey:@"budget"],[defaults integerForKey:@"bedrooms"]+1, [defaults integerForKey:@"bathrooms"]+1];
-    [urlString appendFormat:@"&type=%@",[defaults integerForKey:@"houseOrFlat"] ? @"house" : @"flat"];
+    switch ([defaults integerForKey:@"houseOrFlat"]) {
+        case 0:
+            [urlString appendString:@"&type=house"];
+            break;
+        case 1:
+            [urlString appendString:@"&type=flat"];
+            break;
+        case 2:
+            [urlString appendString:@"&type=all"];
+            break;
+        default:
+            break;
+    }
     NSLog(@"%@",urlString);
     NSURL *theURL =  [[NSURL alloc]initWithString:urlString];
     NSURLRequest *theRequest=[NSURLRequest requestWithURL:theURL
@@ -102,6 +117,8 @@
     [NSURLConnection sendAsynchronousRequest:theRequest 
                                        queue:[NSOperationQueue mainQueue] 
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               [map removeAnnotations:currentPins];
+                               [currentPins removeAllObjects];
                                NSArray * properties = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                if ([properties count] == 0) {
                                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -120,11 +137,16 @@
                                    THCustomPointAnnotation *houseAnnotation = [[THCustomPointAnnotation alloc] init];
                                    houseAnnotation.coordinate = coord;
                                    houseAnnotation.title = [dict objectForKey:@"title"];
-                                   houseAnnotation.subtitle = [NSString stringWithFormat:@"£%@",[dict objectForKey:@"price"]];
+                                   NSNumber *priceNumber = [NSNumber numberWithInteger:[[dict objectForKey:@"price"] integerValue]];
                                    
+                                   NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+                                   [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                                   [currencyFormatter setMaximumFractionDigits:0];
+                                   houseAnnotation.subtitle = [currencyFormatter stringFromNumber:priceNumber];
                                    [currentPins addObject:houseAnnotation];
                                    [map addAnnotation:houseAnnotation];
                                    houseAnnotation.urlToShow = [dict objectForKey:@"url"];
+                                   houseAnnotation.isHouse = [[dict objectForKey:@"type"] isEqualToString:@"house"];
                                }
                                // Position the map so that all overlays and annotations are visible on screen.
                                MKMapRect flyTo = MKMapRectNull;
@@ -254,7 +276,7 @@
                 break;
             }
         }
-        polygonView.lineWidth = 1;
+        polygonView.lineWidth = 2;
         return polygonView;
     }
     return nil;
