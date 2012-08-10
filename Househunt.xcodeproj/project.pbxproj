@@ -34,10 +34,13 @@
 		D822F3C115D50FBC00939CC4 /* 53-house-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3BF15D50FBC00939CC4 /* 53-house-white@2x.png */; };
 		D822F3C415D5124A00939CC4 /* 177-building-white.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3C215D5124A00939CC4 /* 177-building-white.png */; };
 		D822F3C715D5156C00939CC4 /* 177-building-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F3C615D5156C00939CC4 /* 177-building-white@2x.png */; };
+		D822F3CB15D57FF800939CC4 /* THHoodDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = D822F3C915D57FF700939CC4 /* THHoodDataController.m */; };
+		D822F3CC15D57FF800939CC4 /* THHoodDataController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D822F3CA15D57FF700939CC4 /* THHoodDataController.xib */; };
+		D822F3D415D59B6D00939CC4 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D822F3D315D59B6C00939CC4 /* PieChartView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D822F3DB15D5B15700939CC4 /* THCustomPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D822F3DA15D5B15600939CC4 /* THCustomPinAnnotationView.m */; };
 		D82CDB1F15D066E1005F1FDB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82CDB1E15D066E1005F1FDB /* MapKit.framework */; };
 		D82CDB2815D06EEA005F1FDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82CDB2715D06EEA005F1FDB /* CoreLocation.framework */; };
 		D82CDC1815D07455005F1FDB /* THNeighbourhood.m in Sources */ = {isa = PBXBuildFile; fileRef = D82CDC1715D07455005F1FDB /* THNeighbourhood.m */; };
-		D8BFA99815D40BA600E86A16 /* THCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFA99715D40BA600E86A16 /* THCustomButton.m */; };
 		D8BFA99C15D40D3800E86A16 /* THCustomPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */; };
 		D8E67DE815D14F3800EF8465 /* 17-check.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DE615D14F3800EF8465 /* 17-check.png */; };
 		D8E67DE915D14F3800EF8465 /* 17-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DE715D14F3800EF8465 /* 17-check@2x.png */; };
@@ -93,12 +96,17 @@
 		D822F3BF15D50FBC00939CC4 /* 53-house-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house-white@2x.png"; sourceTree = "<group>"; };
 		D822F3C215D5124A00939CC4 /* 177-building-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "177-building-white.png"; sourceTree = "<group>"; };
 		D822F3C615D5156C00939CC4 /* 177-building-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "177-building-white@2x.png"; sourceTree = "<group>"; };
+		D822F3C815D57FF700939CC4 /* THHoodDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THHoodDataController.h; sourceTree = "<group>"; };
+		D822F3C915D57FF700939CC4 /* THHoodDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THHoodDataController.m; sourceTree = "<group>"; };
+		D822F3CA15D57FF700939CC4 /* THHoodDataController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THHoodDataController.xib; sourceTree = "<group>"; };
+		D822F3D215D59B6B00939CC4 /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
+		D822F3D315D59B6C00939CC4 /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
+		D822F3D915D5B15500939CC4 /* THCustomPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCustomPinAnnotationView.h; sourceTree = "<group>"; };
+		D822F3DA15D5B15600939CC4 /* THCustomPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCustomPinAnnotationView.m; sourceTree = "<group>"; };
 		D82CDB1E15D066E1005F1FDB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D82CDB2715D06EEA005F1FDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D82CDC1615D07455005F1FDB /* THNeighbourhood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THNeighbourhood.h; sourceTree = "<group>"; };
 		D82CDC1715D07455005F1FDB /* THNeighbourhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THNeighbourhood.m; sourceTree = "<group>"; };
-		D8BFA99615D40BA600E86A16 /* THCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCustomButton.h; sourceTree = "<group>"; };
-		D8BFA99715D40BA600E86A16 /* THCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCustomButton.m; sourceTree = "<group>"; };
 		D8BFA99A15D40D3800E86A16 /* THCustomPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCustomPointAnnotation.h; sourceTree = "<group>"; };
 		D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCustomPointAnnotation.m; sourceTree = "<group>"; };
 		D8E67DE615D14F3800EF8465 /* 17-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check.png"; sourceTree = "<group>"; };
@@ -171,6 +179,8 @@
 		D81F1BA915D064D700C8985E /* Househunt */ = {
 			isa = PBXGroup;
 			children = (
+				D822F3D215D59B6B00939CC4 /* PieChartView.h */,
+				D822F3D315D59B6C00939CC4 /* PieChartView.m */,
 				D8E67E0615D27CA000EF8465 /* MBProgressHUD.h */,
 				D8E67E0715D27CA000EF8465 /* MBProgressHUD.m */,
 				D82CDC1615D07455005F1FDB /* THNeighbourhood.h */,
@@ -179,14 +189,17 @@
 				D81F1BB315D064D700C8985E /* THAppDelegate.m */,
 				D81F1BB515D064D700C8985E /* THMainViewController.h */,
 				D81F1BB615D064D700C8985E /* THMainViewController.m */,
+				D822F3D915D5B15500939CC4 /* THCustomPinAnnotationView.h */,
+				D822F3DA15D5B15600939CC4 /* THCustomPinAnnotationView.m */,
 				D8BFA99A15D40D3800E86A16 /* THCustomPointAnnotation.h */,
 				D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */,
-				D8BFA99615D40BA600E86A16 /* THCustomButton.h */,
-				D8BFA99715D40BA600E86A16 /* THCustomButton.m */,
 				D81F1BB815D064D700C8985E /* THFlipsideViewController.h */,
 				D81F1BB915D064D700C8985E /* THFlipsideViewController.m */,
 				D8E67E0915D2824F00EF8465 /* THHouseDetailsController.h */,
 				D8E67E0A15D2824F00EF8465 /* THHouseDetailsController.m */,
+				D822F3C815D57FF700939CC4 /* THHoodDataController.h */,
+				D822F3C915D57FF700939CC4 /* THHoodDataController.m */,
+				D822F3CA15D57FF700939CC4 /* THHoodDataController.xib */,
 				D8E67E0B15D2824F00EF8465 /* THHouseDetailsController.xib */,
 				D81F1BBB15D064D700C8985E /* THMainViewController_iPhone.xib */,
 				D81F1BBE15D064D700C8985E /* THMainViewController_iPad.xib */,
@@ -346,6 +359,7 @@
 				D822F3C115D50FBC00939CC4 /* 53-house-white@2x.png in Resources */,
 				D822F3C415D5124A00939CC4 /* 177-building-white.png in Resources */,
 				D822F3C715D5156C00939CC4 /* 177-building-white@2x.png in Resources */,
+				D822F3CC15D57FF800939CC4 /* THHoodDataController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,9 +377,11 @@
 				D82CDC1815D07455005F1FDB /* THNeighbourhood.m in Sources */,
 				D8E67E0815D27CE500EF8465 /* MBProgressHUD.m in Sources */,
 				D8E67E0C15D2824F00EF8465 /* THHouseDetailsController.m in Sources */,
-				D8BFA99815D40BA600E86A16 /* THCustomButton.m in Sources */,
 				D8BFA99C15D40D3800E86A16 /* THCustomPointAnnotation.m in Sources */,
 				D822F3A015D4F61300939CC4 /* TSMiniWebBrowser.m in Sources */,
+				D822F3CB15D57FF800939CC4 /* THHoodDataController.m in Sources */,
+				D822F3D415D59B6D00939CC4 /* PieChartView.m in Sources */,
+				D822F3DB15D5B15700939CC4 /* THCustomPinAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

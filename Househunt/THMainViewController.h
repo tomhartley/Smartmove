@@ -10,7 +10,6 @@
 #import "THFlipsideViewController.h"
 #import "THNeighbourhood.h"
 #import "MBProgressHUD.h"
-#import "THCustomButton.h"
 #import "THCustomPointAnnotation.h"
 
 @interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
@@ -19,12 +18,13 @@
     NSDictionary *currentData;
     MKPointAnnotation *mainPoint;
     NSMutableArray *currentPins;
+    UIPopoverController *annotationPopover;
 }
 
 - (IBAction)showInfo:(id)sender;
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay;
 -(void)redoOverlays;
--(void)showHouseDetails:(THCustomButton *)sender;
+-(void)showHouseDetails:(UIButton *)sender;
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 

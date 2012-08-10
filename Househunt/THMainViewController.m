@@ -8,6 +8,8 @@
 
 #import "THMainViewController.h"
 #import "TSMiniWebBrowser.h"
+#import "THHoodDataController.h"
+#import "THCustomPinAnnotationView.h"
 
 @interface THMainViewController ()
 
@@ -42,10 +44,14 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(THCustomPointAnnotation *)annotation {
     if ([[annotation class] isSubclassOfClass:[MKPointAnnotation class]]) {
-        MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        THCustomPinAnnotationView *pin = [[THCustomPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
         pin.animatesDrop = YES;
-        if (!annotation.title) {
+        if ([annotation isEqual:mainPoint]) {
             pin.pinColor = MKPinAnnotationColorPurple;
+            pin.canShowCallout = YES;
+            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            pin.dataDict = annotation.dataDict;
+            pin.rightCalloutAccessoryView = rightButton;
         } else {
             pin.pinColor = MKPinAnnotationColorRed;
             pin.canShowCallout = YES;
@@ -66,6 +72,28 @@
     return nil;
 }
 
+-(void)mapView:(MKMapView *)mapView annotationView:(THCustomPinAnnotationView *)view calloutAccessoryControlTapped:(UIButton *)control {
+    if (view.leftCalloutAccessoryView == nil) {
+        [mapView deselectAnnotation:view.annotation animated:YES];
+        
+        THHoodDataController *ycvc = [[THHoodDataController alloc] initWithNibName:@"THHoodDataController" bundle:nil];
+        ycvc.dataFromAPI = view.dataDict;
+        [ycvc reloadDataFromDict];
+
+       UIPopoverController *poc = [[UIPopoverController alloc] initWithContentViewController:ycvc];
+       
+       //hold ref to popover in an ivar
+       annotationPopover = poc;
+       
+       //size as needed
+       poc.popoverContentSize = CGSizeMake(320, 460);
+       
+       //show the popover next to the annotation view (pin)
+       [poc presentPopoverFromRect:view.bounds inView:view 
+          permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
+
 -(void)showHouseDetails:(UIButton *)sender {
     TSMiniWebBrowser *webBrowser = [[TSMiniWebBrowser alloc] initWithUrl:[NSURL URLWithString:[sender titleForState:UIControlStateNormal]]];
     webBrowser.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -81,18 +109,37 @@
     }
     CGPoint touchPoint = [gestureRecognizer locationInView:map];   
     CLLocationCoordinate2D touchMapCoordinate = [map convertPoint:touchPoint toCoordinateFromView:map];
-    MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
+    THCustomPointAnnotation *annot = [[THCustomPointAnnotation alloc] init];
     
     annot.coordinate = touchMapCoordinate;
+    
+    
+    
     
     if (mainPoint) {
         [map removeAnnotation:mainPoint];
     }
     mainPoint = annot;
-    [map addAnnotation:annot];
+    
+    NSMutableString *areaDataString = [@"http://yrs2012.eu01.aws.af.cm//api/areadata?" mutableCopy];
+    [areaDataString appendFormat:@"lat=%f&lon=%f",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
+    NSURL *areaDataURL = [NSURL URLWithString:areaDataString];
+    NSLog(@"%@",areaDataString);
+    NSURLRequest *areaDataRequest = [NSURLRequest requestWithURL:areaDataURL];
+    [NSURLConnection sendAsynchronousRequest:areaDataRequest 
+                                       queue:[NSOperationQueue mainQueue] 
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               NSDictionary *areaData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                               annot.title = [NSString stringWithFormat:@"Neighbourhood in %@",[areaData objectForKey:@"borough_name"]];
+                               annot.dataDict = areaData;
+                               [map addAnnotation:annot];
+                           }];
+    
+
+    
+    //NSMutableString *urlString = [@"http://yrs2012.eu01.aws.af.cm/api/listings?" mutableCopy];
 
     NSMutableString *urlString = [@"http://yrs2012.eu01.aws.af.cm/api/listings?" mutableCopy];
-
     [urlString appendFormat:@"lat=%f&lon=%f&",touchMapCoordinate.latitude,touchMapCoordinate.longitude];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [urlString appendFormat:@"budget=%.0f&bedrooms=%d&bathrooms=%d",[defaults floatForKey:@"budget"],[defaults integerForKey:@"bedrooms"]+1, [defaults integerForKey:@"bathrooms"]+1];
@@ -111,9 +158,7 @@
     }
     NSLog(@"%@",urlString);
     NSURL *theURL =  [[NSURL alloc]initWithString:urlString];
-    NSURLRequest *theRequest=[NSURLRequest requestWithURL:theURL
-                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:60.0];
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:theURL];
     [NSURLConnection sendAsynchronousRequest:theRequest 
                                        queue:[NSOperationQueue mainQueue] 
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -159,7 +204,7 @@
                                [map setVisibleMapRect:flyTo animated:YES];
 
 
-    }];
+                           }];
 }
 
 
@@ -214,7 +259,6 @@
                                           timeoutInterval:60.0];
     NSData *returnData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:nil];
     NSDictionary * crimeData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
-    
     for (NSString* hoodID in crimeData) {
         THNeighbourhood *hood = [neighbourhoods objectForKey:hoodID];
         hood.crimeIndex = [[crimeData objectForKey:hoodID] floatValue];

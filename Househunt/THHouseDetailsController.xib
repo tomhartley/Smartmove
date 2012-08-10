@@ -259,7 +259,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<float key="IBUIValue">400000</float>
 						<float key="IBUIMinValue">50000</float>
-						<float key="IBUIMaxValue">1000000</float>
+						<float key="IBUIMaxValue">2000000</float>
 						<object class="NSCustomResource" key="IBUIMinimumValueImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">119-piggy-bank.png</string>
@@ -295,7 +295,7 @@
 					<object class="IBUILabel" id="958028233">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{204, 126}, {96, 21}}</string>
+						<string key="NSFrame">{{204, 126}, {96, 22}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="959359997"/>
@@ -305,7 +305,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">£1,000,000+</string>
+						<string key="IBUIText">£2,000,000+</string>
 						<reference key="IBUITextColor" ref="40674781"/>
 						<nil key="IBUIHighlightedColor"/>
 						<reference key="IBUIShadowColor" ref="17384190"/>
@@ -535,8 +535,8 @@
 							<reference ref="431921075"/>
 							<reference ref="783882052"/>
 							<reference ref="90968007"/>
-							<reference ref="958028233"/>
 							<reference ref="658202368"/>
+							<reference ref="958028233"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

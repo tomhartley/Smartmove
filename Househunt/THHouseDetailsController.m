@@ -29,7 +29,6 @@
     // Do any additional setup after loading the view from its nib.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *budgetNumber = [NSNumber numberWithFloat:[[defaults objectForKey:@"budget"] floatValue]];
-    NSLog(@"READ: %@",budgetNumber);
     NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
     budget.value = [budgetNumber floatValue];
     [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
@@ -58,7 +57,6 @@
     [currencyFormatter setMaximumFractionDigits:0];
     budgetLabel.text = [currencyFormatter stringFromNumber:budgetNumber];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog(@"SAVED:%f",budget.value);
     [defaults setFloat:budget.value forKey:@"budget"];
     [defaults setInteger:bedrooms.selectedSegmentIndex forKey:@"bedrooms"];
     [defaults setInteger:bathrooms.selectedSegmentIndex forKey:@"bathrooms"];
