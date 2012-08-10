@@ -18,9 +18,19 @@
 		D81F1BBD15D064D700C8985E /* THMainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81F1BBB15D064D700C8985E /* THMainViewController_iPhone.xib */; };
 		D81F1BC015D064D700C8985E /* THMainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81F1BBE15D064D700C8985E /* THMainViewController_iPad.xib */; };
 		D81F1BC315D064D700C8985E /* THFlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81F1BC115D064D700C8985E /* THFlipsideViewController.xib */; };
+		D822F39A15D4F61300939CC4 /* back_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F39115D4F61300939CC4 /* back_icon.png */; };
+		D822F39B15D4F61300939CC4 /* back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F39215D4F61300939CC4 /* back_icon@2x.png */; };
+		D822F39C15D4F61300939CC4 /* forward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F39315D4F61300939CC4 /* forward_icon.png */; };
+		D822F39D15D4F61300939CC4 /* forward_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F39415D4F61300939CC4 /* forward_icon@2x.png */; };
+		D822F39E15D4F61300939CC4 /* reload_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F39515D4F61300939CC4 /* reload_icon.png */; };
+		D822F39F15D4F61300939CC4 /* reload_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D822F39615D4F61300939CC4 /* reload_icon@2x.png */; };
+		D822F3A015D4F61300939CC4 /* TSMiniWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D822F39815D4F61300939CC4 /* TSMiniWebBrowser.m */; };
+		D822F3A115D4F61300939CC4 /* TSMiniWebBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = D822F39915D4F61300939CC4 /* TSMiniWebBrowser.xib */; };
 		D82CDB1F15D066E1005F1FDB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82CDB1E15D066E1005F1FDB /* MapKit.framework */; };
 		D82CDB2815D06EEA005F1FDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82CDB2715D06EEA005F1FDB /* CoreLocation.framework */; };
 		D82CDC1815D07455005F1FDB /* THNeighbourhood.m in Sources */ = {isa = PBXBuildFile; fileRef = D82CDC1715D07455005F1FDB /* THNeighbourhood.m */; };
+		D8BFA99815D40BA600E86A16 /* THCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFA99715D40BA600E86A16 /* THCustomButton.m */; };
+		D8BFA99C15D40D3800E86A16 /* THCustomPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */; };
 		D8E67DE815D14F3800EF8465 /* 17-check.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DE615D14F3800EF8465 /* 17-check.png */; };
 		D8E67DE915D14F3800EF8465 /* 17-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DE715D14F3800EF8465 /* 17-check@2x.png */; };
 		D8E67DEC15D15B9C00EF8465 /* 17-blank.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DEB15D15B9C00EF8465 /* 17-blank.png */; };
@@ -41,7 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D81F1B9F15D064D700C8985E /* Househunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Househunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81F1B9F15D064D700C8985E /* SmartMove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81F1BA315D064D700C8985E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D81F1BA515D064D700C8985E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D81F1BA715D064D700C8985E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,10 +68,23 @@
 		D81F1BBC15D064D700C8985E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/THMainViewController_iPhone.xib; sourceTree = "<group>"; };
 		D81F1BBF15D064D700C8985E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/THMainViewController_iPad.xib; sourceTree = "<group>"; };
 		D81F1BC215D064D700C8985E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/THFlipsideViewController.xib; sourceTree = "<group>"; };
+		D822F39115D4F61300939CC4 /* back_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_icon.png; sourceTree = "<group>"; };
+		D822F39215D4F61300939CC4 /* back_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_icon@2x.png"; sourceTree = "<group>"; };
+		D822F39315D4F61300939CC4 /* forward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_icon.png; sourceTree = "<group>"; };
+		D822F39415D4F61300939CC4 /* forward_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward_icon@2x.png"; sourceTree = "<group>"; };
+		D822F39515D4F61300939CC4 /* reload_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_icon.png; sourceTree = "<group>"; };
+		D822F39615D4F61300939CC4 /* reload_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload_icon@2x.png"; sourceTree = "<group>"; };
+		D822F39715D4F61300939CC4 /* TSMiniWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMiniWebBrowser.h; sourceTree = "<group>"; };
+		D822F39815D4F61300939CC4 /* TSMiniWebBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMiniWebBrowser.m; sourceTree = "<group>"; };
+		D822F39915D4F61300939CC4 /* TSMiniWebBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMiniWebBrowser.xib; sourceTree = "<group>"; };
 		D82CDB1E15D066E1005F1FDB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D82CDB2715D06EEA005F1FDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D82CDC1615D07455005F1FDB /* THNeighbourhood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THNeighbourhood.h; sourceTree = "<group>"; };
 		D82CDC1715D07455005F1FDB /* THNeighbourhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THNeighbourhood.m; sourceTree = "<group>"; };
+		D8BFA99615D40BA600E86A16 /* THCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCustomButton.h; sourceTree = "<group>"; };
+		D8BFA99715D40BA600E86A16 /* THCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCustomButton.m; sourceTree = "<group>"; };
+		D8BFA99A15D40D3800E86A16 /* THCustomPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCustomPointAnnotation.h; sourceTree = "<group>"; };
+		D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCustomPointAnnotation.m; sourceTree = "<group>"; };
 		D8E67DE615D14F3800EF8465 /* 17-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check.png"; sourceTree = "<group>"; };
 		D8E67DE715D14F3800EF8465 /* 17-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check@2x.png"; sourceTree = "<group>"; };
 		D8E67DEB15D15B9C00EF8465 /* 17-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-blank.png"; sourceTree = "<group>"; };
@@ -112,7 +135,7 @@
 		D81F1BA015D064D700C8985E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D81F1B9F15D064D700C8985E /* Househunt.app */,
+				D81F1B9F15D064D700C8985E /* SmartMove.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +163,10 @@
 				D81F1BB315D064D700C8985E /* THAppDelegate.m */,
 				D81F1BB515D064D700C8985E /* THMainViewController.h */,
 				D81F1BB615D064D700C8985E /* THMainViewController.m */,
+				D8BFA99A15D40D3800E86A16 /* THCustomPointAnnotation.h */,
+				D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */,
+				D8BFA99615D40BA600E86A16 /* THCustomButton.h */,
+				D8BFA99715D40BA600E86A16 /* THCustomButton.m */,
 				D81F1BB815D064D700C8985E /* THFlipsideViewController.h */,
 				D81F1BB915D064D700C8985E /* THFlipsideViewController.m */,
 				D8E67E0915D2824F00EF8465 /* THHouseDetailsController.h */,
@@ -148,6 +175,7 @@
 				D81F1BBB15D064D700C8985E /* THMainViewController_iPhone.xib */,
 				D81F1BBE15D064D700C8985E /* THMainViewController_iPad.xib */,
 				D81F1BC115D064D700C8985E /* THFlipsideViewController.xib */,
+				D822F38F15D4F61300939CC4 /* TSMiniWebBrowser */,
 				D81F1BAA15D064D700C8985E /* Supporting Files */,
 			);
 			path = Househunt;
@@ -177,6 +205,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D822F38F15D4F61300939CC4 /* TSMiniWebBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				D822F39015D4F61300939CC4 /* images */,
+				D822F39715D4F61300939CC4 /* TSMiniWebBrowser.h */,
+				D822F39815D4F61300939CC4 /* TSMiniWebBrowser.m */,
+				D822F39915D4F61300939CC4 /* TSMiniWebBrowser.xib */,
+			);
+			path = TSMiniWebBrowser;
+			sourceTree = "<group>";
+		};
+		D822F39015D4F61300939CC4 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D822F39115D4F61300939CC4 /* back_icon.png */,
+				D822F39215D4F61300939CC4 /* back_icon@2x.png */,
+				D822F39315D4F61300939CC4 /* forward_icon.png */,
+				D822F39415D4F61300939CC4 /* forward_icon@2x.png */,
+				D822F39515D4F61300939CC4 /* reload_icon.png */,
+				D822F39615D4F61300939CC4 /* reload_icon@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		D82CDC2415D083FC005F1FDB /* KMLs */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,9 +240,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D81F1B9E15D064D700C8985E /* Househunt */ = {
+		D81F1B9E15D064D700C8985E /* SmartMove */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D81F1BC615D064D700C8985E /* Build configuration list for PBXNativeTarget "Househunt" */;
+			buildConfigurationList = D81F1BC615D064D700C8985E /* Build configuration list for PBXNativeTarget "SmartMove" */;
 			buildPhases = (
 				D81F1B9B15D064D700C8985E /* Sources */,
 				D81F1B9C15D064D700C8985E /* Frameworks */,
@@ -200,9 +252,9 @@
 			);
 			dependencies = (
 			);
-			name = Househunt;
+			name = SmartMove;
 			productName = Househunt;
-			productReference = D81F1B9F15D064D700C8985E /* Househunt.app */;
+			productReference = D81F1B9F15D064D700C8985E /* SmartMove.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -226,7 +278,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D81F1B9E15D064D700C8985E /* Househunt */,
+				D81F1B9E15D064D700C8985E /* SmartMove */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +307,13 @@
 				D8E67E1D15D294FE00EF8465 /* 177-building@2x.png in Resources */,
 				D8E67E2015D2950D00EF8465 /* 53-house.png in Resources */,
 				D8E67E2115D2950D00EF8465 /* 53-house@2x.png in Resources */,
+				D822F39A15D4F61300939CC4 /* back_icon.png in Resources */,
+				D822F39B15D4F61300939CC4 /* back_icon@2x.png in Resources */,
+				D822F39C15D4F61300939CC4 /* forward_icon.png in Resources */,
+				D822F39D15D4F61300939CC4 /* forward_icon@2x.png in Resources */,
+				D822F39E15D4F61300939CC4 /* reload_icon.png in Resources */,
+				D822F39F15D4F61300939CC4 /* reload_icon@2x.png in Resources */,
+				D822F3A115D4F61300939CC4 /* TSMiniWebBrowser.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +331,9 @@
 				D82CDC1815D07455005F1FDB /* THNeighbourhood.m in Sources */,
 				D8E67E0815D27CE500EF8465 /* MBProgressHUD.m in Sources */,
 				D8E67E0C15D2824F00EF8465 /* THHouseDetailsController.m in Sources */,
+				D8BFA99815D40BA600E86A16 /* THCustomButton.m in Sources */,
+				D8BFA99C15D40D3800E86A16 /* THCustomPointAnnotation.m in Sources */,
+				D822F3A015D4F61300939CC4 /* TSMiniWebBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D81F1BC615D064D700C8985E /* Build configuration list for PBXNativeTarget "Househunt" */ = {
+		D81F1BC615D064D700C8985E /* Build configuration list for PBXNativeTarget "SmartMove" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D81F1BC715D064D700C8985E /* Debug */,

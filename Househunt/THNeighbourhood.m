@@ -27,7 +27,7 @@
         
         // create a polygon annotation for it
         polygon = [MKPolygon polygonWithCoordinates:points count:[coords count]];
-
+        polygon.title = neighbourhoodID;
         
         /*KMLRoot *root = [KMLParser parseKMLAtPath:[[NSBundle mainBundle] pathForResource:neighbourhoodID ofType:@"kml"]];
         NSArray *coords = [[(KMLPolygon *)[(KMLPlacemark *)[[(KMLDocument *)[root feature] features] objectAtIndex:0] geometry] outerBoundaryIs] coordinates];

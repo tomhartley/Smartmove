@@ -93,7 +93,7 @@
         cell.detailTextLabel.text = @"Schools by KS2 attainment";
     } else if ([str isEqualToString:@"houseprices"]) {
         cell.textLabel.text = @"House prices";
-        cell.detailTextLabel.text = @"Average house price";
+        cell.detailTextLabel.text = @"Relative to your budget";
     } else {
         //ks3
         cell.textLabel.text = @"Secondary Schools";
@@ -179,6 +179,10 @@
 
 -(IBAction)openDetailsController {
     THHouseDetailsController * houseDetails = [[THHouseDetailsController alloc] initWithNibName:@"THHouseDetailsController" bundle:nil];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        houseDetails.modalPresentationStyle = UIModalPresentationFormSheet;
+        houseDetails.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    }
     [self presentModalViewController:houseDetails animated:YES];
 }
 

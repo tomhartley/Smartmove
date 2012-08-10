@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface THHouseDetailsController : UIViewController
+@interface THHouseDetailsController : UIViewController {
+    IBOutlet UISegmentedControl *bedrooms;
+    IBOutlet UISegmentedControl *bathrooms;
+    IBOutlet UISegmentedControl *flatOrHouse;
+    IBOutlet UISlider *budget;
+    IBOutlet UILabel *budgetLabel;
+}
 
 -(IBAction)close;
-
+-(IBAction)dataUpdated;
 @end
