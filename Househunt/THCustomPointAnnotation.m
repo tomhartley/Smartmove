@@ -8,6 +8,6 @@
 
 #import "THCustomPointAnnotation.h"
 
-@implementation THCustomPointAnnotation
-@synthesize urlToShow, isHouse, dataDict;
+@implementation THCustomPointAnnotation;
+@synthesize urlToShow, propertyType, dataDict;
 @end

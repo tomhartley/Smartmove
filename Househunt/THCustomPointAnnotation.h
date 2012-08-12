@@ -8,8 +8,14 @@
 
 #import <MapKit/MapKit.h>
 
+typedef enum {
+    THPropertyTypeHouse,
+    THPropertyTypeFlat,
+    THPropertyTypeUndefined
+} THPropertyType;
+
 @interface THCustomPointAnnotation : MKPointAnnotation
 @property (nonatomic) NSString *urlToShow;
 @property (nonatomic) NSDictionary *dataDict;
-@property BOOL isHouse;
+@property THPropertyType propertyType;
 @end

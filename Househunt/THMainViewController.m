@@ -61,9 +61,9 @@
                             action:@selector(showHouseDetails:)
                   forControlEvents:UIControlEventTouchUpInside];
             pin.rightCalloutAccessoryView = rightButton;
-            if (annotation.isHouse) {
+            if (annotation.propertyType = THPropertyTypeHouse) {
                 pin.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"53-house-white"]];
-            } else {
+            } else if (annotation.propertyType = THPropertyTypeFlat) {
                 pin.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"177-building-white"]];
             }
         }
@@ -96,17 +96,14 @@
             [poc presentPopoverFromRect:view.bounds inView:view 
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
-
     }
 }
 
 -(void)showHouseDetails:(UIButton *)sender {
-    //TSMiniWebBrowser *webBrowser = [[TSMiniWebBrowser alloc] initWithUrl:[NSURL URLWithString:[sender titleForState:UIControlStateNormal]]];
-    //webBrowser.modalPresentationStyle = UIModalPresentationPageSheet;
-    //webBrowser.mode = TSMiniWebBrowserModeModal;
-    //[self presentModalViewController:webBrowser animated:YES];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[sender titleForState:UIControlStateNormal]]];
-
+    TSMiniWebBrowser *webBrowser = [[TSMiniWebBrowser alloc] initWithUrl:[NSURL URLWithString:[sender titleForState:UIControlStateNormal]]];
+    webBrowser.modalPresentationStyle = UIModalPresentationPageSheet;
+    webBrowser.mode = TSMiniWebBrowserModeModal;
+    [self presentModalViewController:webBrowser animated:YES];
 }
 
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
@@ -119,9 +116,6 @@
     THCustomPointAnnotation *annot = [[THCustomPointAnnotation alloc] init];
     
     annot.coordinate = touchMapCoordinate;
-    
-    
-    
     
     if (mainPoint) {
         [map removeAnnotation:mainPoint];
@@ -198,7 +192,13 @@
                                    [currentPins addObject:houseAnnotation];
                                    [map addAnnotation:houseAnnotation];
                                    houseAnnotation.urlToShow = [dict objectForKey:@"url"];
-                                   houseAnnotation.isHouse = [[dict objectForKey:@"type"] isEqualToString:@"house"];
+                                   if ([[dict objectForKey:@"type"] isEqualToString:@"house"]) {
+                                       houseAnnotation.propertyType = THPropertyTypeHouse;
+                                   } else if ([[dict objectForKey:@"type"] isEqualToString:@"flat"]){
+                                       houseAnnotation.propertyType = THPropertyTypeFlat;
+                                   } else {
+                                       houseAnnotation.propertyType = THPropertyTypeUndefined;
+                                   }
                                }
                                // Position the map so that all overlays and annotations are visible on screen.
                                MKMapRect flyTo = MKMapRectNull;
