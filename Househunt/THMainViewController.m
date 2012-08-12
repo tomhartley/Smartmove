@@ -266,10 +266,10 @@
                                           timeoutInterval:60.0];
     NSData *returnData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:nil];
     if (returnData) {
-        NSDictionary * crimeData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
-        for (NSString* hoodID in crimeData) {
+        NSDictionary *combiData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
+        for (NSString* hoodID in combiData) {
             THNeighbourhood *hood = [neighbourhoods objectForKey:hoodID];
-            hood.crimeIndex = [[crimeData objectForKey:hoodID] floatValue];
+            hood.colourIndex = [[combiData objectForKey:hoodID] floatValue];
         }
         [self centerMap];
 
@@ -318,14 +318,14 @@
             if ([hood.polygon isEqual:overlay]) {
                 float redColor;
                 float greenColor;
-                if (hood.crimeIndex < 0.5) {
-                    redColor = hood.crimeIndex * 2;
+                if (hood.colourIndex < 0.5) {
+                    redColor = hood.colourIndex * 2;
                     greenColor = 1;
                 } else {
                     redColor = 1;
-                    greenColor = (1-hood.crimeIndex) * 2;
+                    greenColor = (1-hood.colourIndex) * 2;
                 }
-                polygonView.fillColor   = [UIColor colorWithRed:redColor green:greenColor blue:0.0 alpha:0.3+(0.3*hood.crimeIndex)];
+                polygonView.fillColor   = [UIColor colorWithRed:redColor green:greenColor blue:0.0 alpha:0.3+(0.3*hood.colourIndex)];
                 polygonView.strokeColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
                 break;
             }
@@ -371,7 +371,6 @@
      */
     NSMutableString *URL = [@"http://yrs2012.eu01.aws.af.cm/api/combi/" mutableCopy];
     
-    //@"crimes",@"employment",@"houseprices",@"ks2",@"ks4"
     for (NSString *str in prefs) {
         if ([[enabled objectForKey:str] boolValue]) {
             if ([str isEqualToString:@"crimes"]) {
@@ -394,18 +393,17 @@
 
     
     NSLog(@"URL: %@",URL);
-    //URL = [@"http://vps.boredomcode.net/YRSApi/crimes/" mutableCopy];
     NSURL *theURL =  [[NSURL alloc]initWithString:URL];
     NSURLRequest *theRequest=[NSURLRequest requestWithURL:theURL
                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                           timeoutInterval:60.0];
     NSData *returnData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:nil];
-    NSDictionary * crimeData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
+    NSDictionary * combiData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
 
     
-    for (NSString* hoodID in crimeData) {
+    for (NSString* hoodID in combiData) {
         THNeighbourhood *hood = [neighbourhoods objectForKey:hoodID];
-        hood.crimeIndex = [[crimeData objectForKey:hoodID] floatValue];
+        hood.colourIndex = [[combiData objectForKey:hoodID] floatValue];
     }
     
     [self performSelectorOnMainThread:@selector(redoOverlays) withObject:nil waitUntilDone:NO];

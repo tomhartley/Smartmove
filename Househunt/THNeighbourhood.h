@@ -11,9 +11,7 @@
 
 @interface THNeighbourhood : NSObject {
     NSString *ID;
-    float crimeIndex;
-    float unemploymentIndex;
-    
+    float colourIndex;
     MKPolygon *polygon;
 }
 
@@ -21,6 +19,6 @@
 
 @property (nonatomic, readonly) NSString *ID;
 @property (nonatomic, readonly) MKPolygon *polygon;
-@property (nonatomic) float crimeIndex;
+@property (nonatomic) float colourIndex;
 
 @end

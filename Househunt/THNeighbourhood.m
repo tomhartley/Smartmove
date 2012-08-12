@@ -11,7 +11,7 @@
 //#import <KML/KML.h>
 
 @implementation THNeighbourhood
-@synthesize ID, crimeIndex, polygon;
+@synthesize ID, colourIndex, polygon;
 
 - (id) initWithID:(NSString *)neighbourhoodID coordinates:(NSArray *)coords {
     // grab the  KML file
