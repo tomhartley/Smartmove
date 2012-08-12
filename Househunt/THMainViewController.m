@@ -80,25 +80,32 @@
         ycvc.dataFromAPI = view.dataDict;
         [ycvc reloadDataFromDict];
 
-       UIPopoverController *poc = [[UIPopoverController alloc] initWithContentViewController:ycvc];
-       
-       //hold ref to popover in an ivar
-       annotationPopover = poc;
-       
-       //size as needed
-       poc.popoverContentSize = CGSizeMake(320, 460);
-       
-       //show the popover next to the annotation view (pin)
-       [poc presentPopoverFromRect:view.bounds inView:view 
-          permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+            [self presentViewController:ycvc animated:YES completion:nil];
+        } else {
+            UIPopoverController *poc = [[UIPopoverController alloc] initWithContentViewController:ycvc];
+            
+            //hold ref to popover in an ivar
+            annotationPopover = poc;
+            
+            //size as needed
+            poc.popoverContentSize = CGSizeMake(320, 460);
+            
+            //show the popover next to the annotation view (pin)
+            [poc presentPopoverFromRect:view.bounds inView:view 
+               permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+
     }
 }
 
 -(void)showHouseDetails:(UIButton *)sender {
-    TSMiniWebBrowser *webBrowser = [[TSMiniWebBrowser alloc] initWithUrl:[NSURL URLWithString:[sender titleForState:UIControlStateNormal]]];
-    webBrowser.modalPresentationStyle = UIModalPresentationPageSheet;
-    webBrowser.mode = TSMiniWebBrowserModeModal;
-    [self presentModalViewController:webBrowser animated:YES];
+    //TSMiniWebBrowser *webBrowser = [[TSMiniWebBrowser alloc] initWithUrl:[NSURL URLWithString:[sender titleForState:UIControlStateNormal]]];
+    //webBrowser.modalPresentationStyle = UIModalPresentationPageSheet;
+    //webBrowser.mode = TSMiniWebBrowserModeModal;
+    //[self presentModalViewController:webBrowser animated:YES];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[sender titleForState:UIControlStateNormal]]];
 
 }
 
@@ -258,13 +265,16 @@
                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                           timeoutInterval:60.0];
     NSData *returnData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:nil error:nil];
-    NSDictionary * crimeData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
-    for (NSString* hoodID in crimeData) {
-        THNeighbourhood *hood = [neighbourhoods objectForKey:hoodID];
-        hood.crimeIndex = [[crimeData objectForKey:hoodID] floatValue];
+    if (returnData) {
+        NSDictionary * crimeData = [NSJSONSerialization JSONObjectWithData:returnData options:0 error:nil];
+        for (NSString* hoodID in crimeData) {
+            THNeighbourhood *hood = [neighbourhoods objectForKey:hoodID];
+            hood.crimeIndex = [[crimeData objectForKey:hoodID] floatValue];
+        }
+        [self centerMap];
+
     }
     
-    [self centerMap];
 }
 
 -(void)centerMap {

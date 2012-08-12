@@ -123,6 +123,10 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(IBAction) dismissModal {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

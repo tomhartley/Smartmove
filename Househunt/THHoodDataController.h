@@ -34,5 +34,6 @@
 @property (nonatomic) NSDictionary *dataFromAPI;
 
 -(void)reloadDataFromDict;
+-(IBAction) dismissModal;
 
 @end
