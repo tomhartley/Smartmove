@@ -1,6 +1,6 @@
 //
 //  THFlipsideViewController.m
-//  Househunt
+//  Smartmove
 //
 //  Created by Tom Hartley on 06/08/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -87,17 +87,17 @@
         cell.detailTextLabel.text = @"Number of crimes committed ";
     } else if ([str isEqualToString:@"employment"]) {
         cell.textLabel.text = @"Unemployment";
-        cell.detailTextLabel.text = @"Number of unemployed people";
+        cell.detailTextLabel.text = @"Perentage of workforce unemployed";
     } else if ([str isEqualToString:@"ks2"]) {
         cell.textLabel.text = @"Primary Schools";
-        cell.detailTextLabel.text = @"Schools by KS2 attainment";
+        cell.detailTextLabel.text = @"Schools by SAT results (KS2)";
     } else if ([str isEqualToString:@"houseprices"]) {
         cell.textLabel.text = @"House prices";
         cell.detailTextLabel.text = @"Relative to your budget";
     } else {
         //ks3
         cell.textLabel.text = @"Secondary Schools";
-        cell.detailTextLabel.text = @"Schools by KS4 attainment";
+        cell.detailTextLabel.text = @"Schools by GCSE";
     }
     return cell;
 }

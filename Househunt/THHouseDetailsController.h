@@ -1,6 +1,6 @@
 //
 //  THHouseDetailsController.h
-//  Househunt
+//  Smartmove
 //
 //  Created by Tom Hartley on 08/08/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.

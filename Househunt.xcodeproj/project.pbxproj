@@ -112,7 +112,7 @@
 		D8E67DE615D14F3800EF8465 /* 17-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check.png"; sourceTree = "<group>"; };
 		D8E67DE715D14F3800EF8465 /* 17-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check@2x.png"; sourceTree = "<group>"; };
 		D8E67DEB15D15B9C00EF8465 /* 17-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-blank.png"; sourceTree = "<group>"; };
-		D8E67E0015D26A2400EF8465 /* neighbourhoods.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = neighbourhoods.json; sourceTree = "<group>"; };
+		D8E67E0015D26A2400EF8465 /* neighbourhoods.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = neighbourhoods.json; path = ../Polygons/neighbourhoods.json; sourceTree = "<group>"; };
 		D8E67E0615D27CA000EF8465 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D8E67E0715D27CA000EF8465 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D8E67E0915D2824F00EF8465 /* THHouseDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = THHouseDetailsController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -149,8 +149,8 @@
 		D81F1B9415D064D600C8985E = {
 			isa = PBXGroup;
 			children = (
-				D82CDC2415D083FC005F1FDB /* KMLs */,
-				D81F1BA915D064D700C8985E /* Househunt */,
+				D82CDC2415D083FC005F1FDB /* Polygons */,
+				D81F1BA915D064D700C8985E /* SmartMove */,
 				D81F1BA215D064D700C8985E /* Frameworks */,
 				D81F1BA015D064D700C8985E /* Products */,
 			);
@@ -176,7 +176,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D81F1BA915D064D700C8985E /* Househunt */ = {
+		D81F1BA915D064D700C8985E /* SmartMove */ = {
 			isa = PBXGroup;
 			children = (
 				D822F3D215D59B6B00939CC4 /* PieChartView.h */,
@@ -207,6 +207,7 @@
 				D822F38F15D4F61300939CC4 /* TSMiniWebBrowser */,
 				D81F1BAA15D064D700C8985E /* Supporting Files */,
 			);
+			name = SmartMove;
 			path = Househunt;
 			sourceTree = "<group>";
 		};
@@ -266,11 +267,12 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		D82CDC2415D083FC005F1FDB /* KMLs */ = {
+		D82CDC2415D083FC005F1FDB /* Polygons */ = {
 			isa = PBXGroup;
 			children = (
 				D8E67E0015D26A2400EF8465 /* neighbourhoods.json */,
 			);
+			name = Polygons;
 			path = KMLs;
 			sourceTree = "<group>";
 		};
@@ -302,6 +304,7 @@
 			attributes = {
 				CLASSPREFIX = TH;
 				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = 7f;
 			};
 			buildConfigurationList = D81F1B9915D064D600C8985E /* Build configuration list for PBXProject "Househunt" */;
 			compatibilityVersion = "Xcode 3.2";
