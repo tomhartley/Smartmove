@@ -146,7 +146,6 @@
 	// Loop through all the values and draw the graph
 	startDeg = 0;
 	
-	NSLog(@"Total of %d pie items to draw.", [_pieItems count]);
 	
 	NSUInteger idx = 0;
 	for( idx = 0; idx < [_pieItems count]; idx++ ) {
@@ -160,8 +159,6 @@
 		
 		if( theta > 0.0 ) {
 			endDeg += theta;
-			
-			NSLog(@"Drawing arc [%d] from %f to %f.", idx, startDeg, endDeg);
 			
 			if( startDeg != endDeg ) {
 				CGContextSetRGBFillColor(ctx, color.red, color.green, color.blue, color.alpha );
@@ -180,8 +177,6 @@
 		
 		startDeg = endDeg;
 		endDeg = 360.0;
-		
-		NSLog(@"Drawing bg arc from %f to %f.", startDeg, endDeg);
 		
 		if( startDeg != endDeg ) {
 			CGContextSetRGBFillColor(ctx, _noDataFillColor.red, _noDataFillColor.green, _noDataFillColor.blue, _noDataFillColor.alpha );

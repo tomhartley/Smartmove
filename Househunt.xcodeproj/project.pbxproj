@@ -112,7 +112,7 @@
 		D8E67DE615D14F3800EF8465 /* 17-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check.png"; sourceTree = "<group>"; };
 		D8E67DE715D14F3800EF8465 /* 17-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check@2x.png"; sourceTree = "<group>"; };
 		D8E67DEB15D15B9C00EF8465 /* 17-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-blank.png"; sourceTree = "<group>"; };
-		D8E67E0015D26A2400EF8465 /* neighbourhoods.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = neighbourhoods.json; path = ../Polygons/neighbourhoods.json; sourceTree = "<group>"; };
+		D8E67E0015D26A2400EF8465 /* neighbourhoods.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = neighbourhoods.json; path = Polygons/neighbourhoods.json; sourceTree = SOURCE_ROOT; };
 		D8E67E0615D27CA000EF8465 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D8E67E0715D27CA000EF8465 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D8E67E0915D2824F00EF8465 /* THHouseDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = THHouseDetailsController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };

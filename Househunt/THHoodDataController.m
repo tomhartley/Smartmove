@@ -105,17 +105,10 @@
     viewOther.backgroundColor = colour11;
     
     
-    chartView.alpha = 0.0;
+    chartView.alpha = 1.0;
     [chartView setHidden:NO];
     [chartView setNeedsDisplay];
-    
-    // Animate the fade-in
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.5];
-    chartView.alpha = 1.0;
-    [UIView commitAnimations];
 }
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];

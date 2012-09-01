@@ -26,16 +26,8 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSMutableArray *arr = [[defaults objectForKey:@"userprefs"] mutableCopy];
         NSMutableDictionary *enabledDict = [[defaults objectForKey:@"enabledPrefs"] mutableCopy];
-        if (1 && arr) {
-            userPreferences = arr;
-            enabledRows = enabledDict;
-        } else {
-            userPreferences = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObjects:@"crimes",@"employment",@"houseprices",@"ks2",@"ks4", nil]];
-            enabledRows = [[NSMutableDictionary alloc] initWithCapacity:5];
-            for (NSString *str in userPreferences) {
-                [enabledRows setObject:[NSNumber numberWithBool:YES] forKey:str];
-            }
-        }
+        userPreferences = arr;
+        enabledRows = enabledDict;
         numberOfDisabledRows = 0;
         for (NSString *str in userPreferences) {
             if (![[enabledRows objectForKey:str] boolValue]) {
@@ -191,7 +183,6 @@
 
 - (IBAction)done:(id)sender
 {
-    [self.delegate performSelectorInBackground:@selector(flipsideViewControllerDidUpdate:) withObject:self];
     [self.delegate flipsideViewControllerDidFinish:self];
 }
 

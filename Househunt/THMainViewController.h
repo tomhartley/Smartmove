@@ -12,19 +12,27 @@
 #import "MBProgressHUD.h"
 #import "THCustomPointAnnotation.h"
 
-@interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
+@interface THMainViewController : UIViewController <THFlipsideViewControllerDelegate, UIPopoverControllerDelegate, MKMapViewDelegate, MBProgressHUDDelegate> {
     IBOutlet MKMapView *map;
     NSMutableDictionary *neighbourhoods;
     NSDictionary *currentData;
-    MKPointAnnotation *mainPoint;
+    THCustomPointAnnotation *mainPoint;
     NSMutableArray *currentPins;
     UIPopoverController *annotationPopover;
+    NSDictionary *displayedOverlaysEnabled;
+    NSArray *displayedOverlaysOrdering;
+    float displayedBudget;
 }
 
+- (void)performLaunchActions;
 - (IBAction)showInfo:(id)sender;
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay;
--(void)redoOverlays;
--(void)showHouseDetails:(UIButton *)sender;
+- (void)readdOverlays;
+- (void)showHouseDetails:(UIButton *)sender;
+- (void)updateAreaInfo;
+- (void)updateHouseInfo;
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer;
+- (BOOL)isMapDataCurrent;
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
