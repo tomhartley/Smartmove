@@ -211,14 +211,15 @@
     }
 }
 - (void) performLaunchActions {
-    NSDictionary *hoods = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"neighbourhoods" ofType:@"json"]] options:0 error:nil];
+
+    NSDictionary *hoods = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"savedHoods" ofType:@""]];
     
-        
     neighbourhoods = [NSMutableDictionary dictionaryWithCapacity:800];
     for (NSString *hoodID in hoods) {
         THNeighbourhood *newHood = [[THNeighbourhood alloc] initWithID:hoodID coordinates:[hoods objectForKey:hoodID]];
         [neighbourhoods setObject:newHood forKey:hoodID];
     }
+    
     [self downloadCombiData];
     [self performSelectorOnMainThread:@selector(centerMap) withObject:nil waitUntilDone:YES];
 }

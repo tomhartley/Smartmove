@@ -42,6 +42,7 @@
 		D82CDB2815D06EEA005F1FDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82CDB2715D06EEA005F1FDB /* CoreLocation.framework */; };
 		D82CDC1815D07455005F1FDB /* THNeighbourhood.m in Sources */ = {isa = PBXBuildFile; fileRef = D82CDC1715D07455005F1FDB /* THNeighbourhood.m */; };
 		D8BFA99C15D40D3800E86A16 /* THCustomPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */; };
+		D8D251BA15F272E600AEABED /* savedHoods in Resources */ = {isa = PBXBuildFile; fileRef = D8D251B915F272E600AEABED /* savedHoods */; };
 		D8E67DE815D14F3800EF8465 /* 17-check.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DE615D14F3800EF8465 /* 17-check.png */; };
 		D8E67DE915D14F3800EF8465 /* 17-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DE715D14F3800EF8465 /* 17-check@2x.png */; };
 		D8E67DEC15D15B9C00EF8465 /* 17-blank.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E67DEB15D15B9C00EF8465 /* 17-blank.png */; };
@@ -109,6 +110,7 @@
 		D82CDC1715D07455005F1FDB /* THNeighbourhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = THNeighbourhood.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D8BFA99A15D40D3800E86A16 /* THCustomPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = THCustomPointAnnotation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D8BFA99B15D40D3800E86A16 /* THCustomPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = THCustomPointAnnotation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		D8D251B915F272E600AEABED /* savedHoods */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = savedHoods; path = Polygons/savedHoods; sourceTree = SOURCE_ROOT; };
 		D8E67DE615D14F3800EF8465 /* 17-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check.png"; sourceTree = "<group>"; };
 		D8E67DE715D14F3800EF8465 /* 17-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-check@2x.png"; sourceTree = "<group>"; };
 		D8E67DEB15D15B9C00EF8465 /* 17-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-blank.png"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		D82CDC2415D083FC005F1FDB /* Polygons */ = {
 			isa = PBXGroup;
 			children = (
+				D8D251B915F272E600AEABED /* savedHoods */,
 				D8E67E0015D26A2400EF8465 /* neighbourhoods.json */,
 			);
 			name = Polygons;
@@ -363,6 +366,7 @@
 				D822F3C415D5124A00939CC4 /* 177-building-white.png in Resources */,
 				D822F3C715D5156C00939CC4 /* 177-building-white@2x.png in Resources */,
 				D822F3CC15D57FF800939CC4 /* THHoodDataController.xib in Resources */,
+				D8D251BA15F272E600AEABED /* savedHoods in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
