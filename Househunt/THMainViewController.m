@@ -33,7 +33,7 @@
     // The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
 	MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.view];
 	[self.view addSubview:HUD];
-	HUD.labelText = @"Updating...";
+	HUD.labelText = @"Loading...";
 	// Register for HUD callbacks so we can remove it from the window at the right time
 	HUD.delegate = self;
 	
@@ -43,7 +43,7 @@
 
 
 - (void)mapView:(MKMapView *)mapView annotationView:(THCustomPinAnnotationView *)view calloutAccessoryControlTapped:(UIButton *)control {
-    if (view.leftCalloutAccessoryView == nil) {
+    if (view.annotation == mainPoint) {
         [mapView deselectAnnotation:view.annotation animated:YES];
         
         THHoodDataController *ycvc = [[THHoodDataController alloc] initWithNibName:@"THHoodDataController" bundle:nil];
@@ -61,10 +61,11 @@
             
             //size as needed
             poc.popoverContentSize = CGSizeMake(320, 460);
-            
             //show the popover next to the annotation view (pin)
             [poc presentPopoverFromRect:view.bounds inView:view 
                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            poc.popoverContentSize = CGSizeMake(320, 0);
+            [poc setPopoverContentSize:CGSizeMake(320, 460) animated:YES];
         }
     }
 }
@@ -116,7 +117,6 @@
                                            queue:[NSOperationQueue mainQueue] 
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                    NSDictionary *areaData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                   NSLog(@"%@",[areaData objectForKey:@"borough_name"]);
                                    if (![[areaData objectForKey:@"borough_name"] isEqual:[NSNull null]]) {
                                        mainPoint.title = [NSString stringWithFormat:@"Neighbourhood in %@",[areaData objectForKey:@"borough_name"]];
                                        mainPoint.dataDict = areaData;
@@ -262,6 +262,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
 {
     // we get here in order to draw any polygon (these are not the pins, these are the red-green overlays for each neighbourhood)
@@ -351,13 +353,13 @@
     [self flipsideViewControllerDidUpdate:controller];    
 }
 
-
 - (void)downloadCombiData {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray *prefs = [[defaults objectForKey:@"userprefs"] mutableCopy];
     NSMutableDictionary *enabled = [[defaults objectForKey:@"enabledPrefs"] mutableCopy];
     float budget = [defaults floatForKey:@"budget"];
-    
+    displayedBudget = budget;
+    budget = 0;
     if (!prefs || !enabled) {
         prefs = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObjects:@"crimes",@"employment",@"houseprices",@"ks2",@"ks4", nil]];
         enabled = [[NSMutableDictionary alloc] initWithCapacity:5];
@@ -403,7 +405,6 @@
         [URL appendFormat:@"/%.0f",budget];
     }
     
-    displayedBudget = budget;
     
     NSLog(@"URL: %@",URL);
     NSURL *theURL =  [[NSURL alloc]initWithString:URL];
@@ -427,7 +428,9 @@
         [self.view addSubview:HUD];
         // Register for HUD callbacks so we can remove it from the window at the right time
         HUD.delegate = self;
-        HUD.yOffset = 300; //FIXME for iPhone.. I think
+        ;
+        HUD.yOffset = map.frame.size.height/2-50; //FIXME for iPhone.. I think
+        //HUD.yOffset = 0;
         // Show the HUD while the provided method executes in a new thread
         HUD.userInteractionEnabled = NO;
         [HUD showAnimated:YES whileExecutingBlock:^{
@@ -443,7 +446,7 @@
     NSMutableArray *prefs = [[defaults objectForKey:@"userprefs"] mutableCopy];
     NSMutableDictionary *enabled = [[defaults objectForKey:@"enabledPrefs"] mutableCopy];
     float budget = [defaults floatForKey:@"budget"];
-    if ([displayedOverlaysEnabled isEqualToDictionary:enabled] && [displayedOverlaysOrdering isEqualToArray:prefs] && !(!(budget == displayedBudget) && [[enabled objectForKey:@"houseprices"] boolValue])) {
+    if ([displayedOverlaysEnabled isEqualToDictionary:enabled] && [displayedOverlaysOrdering isEqualToArray:prefs] && ((budget == displayedBudget) || ![[enabled objectForKey:@"houseprices"] boolValue])) {
         return YES;
     }
     return NO;
