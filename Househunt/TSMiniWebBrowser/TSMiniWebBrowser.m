@@ -94,6 +94,7 @@
     
     CGFloat width = self.view.frame.size.width;
     navigationBarModal = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
+	navigationBarModal.tintColor = [UIColor colorWithRed:0 green:0.168 blue:0.6	alpha:1];
     //navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
     navigationBarModal.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     navigationBarModal.barStyle = barStyle;
@@ -116,6 +117,7 @@
     
     toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     toolBar.barStyle = barStyle;
+	toolBar.tintColor = [UIColor colorWithRed:0 green:0.168 blue:0.6	alpha:1];
     [self.view addSubview:toolBar];
     
     buttonGoBack = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backButtonTouchUp:)];
