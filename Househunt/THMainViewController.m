@@ -422,6 +422,7 @@
 }
      
 - (void)flipsideViewControllerDidUpdate:(THFlipsideViewController *)controller {
+	float budget2 = displayedBudget;
     if (![self isMapDataCurrent]) {
         MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.view];
         [self.view addSubview:HUD];
@@ -436,8 +437,12 @@
             //[self performSelectorInBackground:@selector(downloadCombiData) withObject:nil];
             [self downloadCombiData];
         }];
-        [self updateHouseInfo];
     }
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	float budget = [defaults floatForKey:@"budget"];
+	if (budget != budget2) {
+		[self updateHouseInfo];
+	}
 }
 
 - (BOOL)isMapDataCurrent {
@@ -450,6 +455,7 @@
     }
     return NO;
 }
+
 
 - (IBAction)showInfo:(id)sender
 {
@@ -469,6 +475,7 @@
             [self.flipsidePopoverController dismissPopoverAnimated:YES];
             [self flipsideViewControllerDidUpdate:(THFlipsideViewController *)self.flipsidePopoverController.contentViewController];
         } else {
+			self.flipsidePopoverController.popoverContentSize = CGSizeMake(320, 480-21);
             [self.flipsidePopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     }
