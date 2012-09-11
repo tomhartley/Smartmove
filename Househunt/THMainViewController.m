@@ -359,7 +359,6 @@
     NSMutableDictionary *enabled = [[defaults objectForKey:@"enabledPrefs"] mutableCopy];
     float budget = [defaults floatForKey:@"budget"];
     displayedBudget = budget;
-    budget = 0;
     if (!prefs || !enabled) {
         prefs = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObjects:@"crimes",@"employment",@"houseprices",@"ks2",@"ks4", nil]];
         enabled = [[NSMutableDictionary alloc] initWithCapacity:5];
